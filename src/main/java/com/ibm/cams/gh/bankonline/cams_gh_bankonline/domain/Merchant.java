@@ -4,12 +4,15 @@ import javax.persistence.*;
 
 @Entity
 
-@Table(name = "merchant")
+@Table(name = "merchant_tbl")
 
 public class Merchant {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "merch_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
 	String merch_id;
+	
+	@Column(name = "merch_name")
 	private String merch_name;
 	
 	public Merchant() {

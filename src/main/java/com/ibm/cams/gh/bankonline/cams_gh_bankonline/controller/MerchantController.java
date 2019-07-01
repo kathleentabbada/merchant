@@ -13,6 +13,11 @@ public class MerchantController {
 	@Autowired
 	MerchantRepo merchantRepo;
 	
+//	@GetMapping("/merch")
+//	public void merch(){
+//		merchantRepo.save(new Merchant("FFF111FF11", "Raquel"));
+//	}
+	
 	@GetMapping
 	public List<Merchant> getMerchantList() {
 		
@@ -21,10 +26,10 @@ public class MerchantController {
 		return merchants;
 	}
 	
-	@GetMapping("/{id}")
-	public Merchant getMerchantById(@PathVariable("id") String id) {
+	@GetMapping("{id}")
+	public Merchant getMerchantById(@PathVariable("id") String merch_id) {
 			
-			Merchant merchant = merchantRepo.findById(id).orElseThrow(null);
+			Merchant merchant = merchantRepo.findById(merch_id).orElseThrow(null);
 			
 			return merchant;
 	}
@@ -33,7 +38,7 @@ public class MerchantController {
 	public void dummyData() {
 		
 		Merchant newMerchant = new Merchant();
-		newMerchant.setMerch_id("AAA111BBB2");
+		newMerchant.setMerch_id("ZZZ000HH66");
 		newMerchant.setMerch_name("IBM");
 
 		

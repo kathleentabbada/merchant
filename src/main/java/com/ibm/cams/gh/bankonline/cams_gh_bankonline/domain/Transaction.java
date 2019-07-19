@@ -1,12 +1,30 @@
 package com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain;
 
 import java.sql.Date;
+import javax.persistence.*;
+
+@Entity
+
+@Table(name = "transaction_tbl")
 
 public class Transaction {
-	String trans_id, merch_id, accountnumber;
-	private Double amount;
-	private Date trans_date;
+	
+	@Id
+	@Column(name = "trans_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
+	String trans_id;
+	
+	@Column(name = "merch_id")
+	private String merch_id;
 
+	@Column(name = "accountnumber")
+	private String accountnumber;
+	
+	@Column(name = "amount")
+	private Double amount;
+	
+	@Column(name = "amount")
+	private Date trans_date;
+	
 	public Transaction() {
 		
 	}

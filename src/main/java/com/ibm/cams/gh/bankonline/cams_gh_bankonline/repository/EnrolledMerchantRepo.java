@@ -3,10 +3,11 @@ package com.ibm.cams.gh.bankonline.cams_gh_bankonline.repository;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.Merchant;
+import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.EnrolledMerchant;
 
 @Repository
-public interface MerchantRepo extends CrudRepository<Merchant, String> {
+public interface EnrolledMerchantRepo extends CrudRepository<EnrolledMerchant, String> {
 
-	List<Merchant> findAll();
+	List<EnrolledMerchant> findAll();
+
 }

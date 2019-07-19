@@ -1,8 +1,23 @@
 package com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain;
 
+import javax.persistence.*;
+
+@Entity
+
+@Table(name = "enrolledmerchant_tbl")
 public class EnrolledMerchant {
-String enmerch_id, merch_id, accountnumber;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "enmerch_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
+	String enmerch_id;
+	
+	@Column(name = "merch_id")
+	private String merch_id;
+	
+	@Column(name = "accountnumber")
+	private String accountnumber;
+
 	public EnrolledMerchant() {
 		
 	}

@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 public class Merchant {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//  @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "merch_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
 	String merch_id;
 	

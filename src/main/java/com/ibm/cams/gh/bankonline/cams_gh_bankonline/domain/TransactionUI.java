@@ -1,39 +1,20 @@
 package com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain;
 
 import java.sql.Date;
-import javax.persistence.*;
 
-@Entity
+public class TransactionUI {
 
-@Table(name = "transaction_tbl")
-
-public class Transaction {
-	
-	@Id
-	@Column(name = "trans_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
-	String trans_id;
-	
-	@Column(name = "merch_id")
+	private String trans_id;
 	private String merch_id;
-
-	@Column(name = "accountnumber")
 	private String accountnumber;
-	
-	@Column(name = "amount")
 	private Double amount;
-	
-	@Column(name = "trans_date")
 	private Date trans_date;
-	
-	public Transaction() {
+
+	protected TransactionUI() {
 		
 	}
 
-	public Transaction(String merch_id, String accountnumber, Double amount, Date trans_date) {
-		this(null, merch_id, accountnumber, amount, trans_date);
-	}
-
-	public Transaction(String trans_id, String merch_id, String accountnumber, Double amount, Date trans_date) {
+	public TransactionUI(String trans_id, String merch_id, String accountnumber, Double amount, Date trans_date) {
 		this.trans_id = trans_id;
 		this.merch_id = merch_id;
 		this.accountnumber = accountnumber;
@@ -41,10 +22,6 @@ public class Transaction {
 		this.trans_date = trans_date;
 	}
 
-	public String toString() {
-		return String.format("Transaction[trans_id='%s', merch_id='%s', accountnumber='%s', amount='%s', trans_date='%s']"
-							, trans_id, merch_id, accountnumber, amount, trans_date);
-	}
 	public String getTrans_id() {
 		return trans_id;
 	}
@@ -84,4 +61,10 @@ public class Transaction {
 	public void setTrans_date(Date trans_date) {
 		this.trans_date = trans_date;
 	}
+	
+	public String toString() {
+		return String.format("Transaction[trans_id='%s', merch_id='%s', accountnumber='%s', amount='%s', trans_date='%s']"
+							, trans_id, merch_id, accountnumber, amount, trans_date);
+	}
+
 }

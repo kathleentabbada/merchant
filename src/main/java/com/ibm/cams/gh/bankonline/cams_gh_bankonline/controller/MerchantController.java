@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.Merchant;
+import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.MerchantUI;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.repository.MerchantRepo;
 
 @RestController
@@ -37,10 +38,18 @@ public class MerchantController {
 //		merchantRepo.save(newMerch);
 //	}
 
-	@GetMapping("/addDummy")
-	public void dummyData() {
+	@PostMapping("/addMerchant")
+	public String create(@RequestBody MerchantUI merchant){
 		// save a single Customer
-		merchantRepo.save(new Merchant("333CCC44DD", "IBM"));
+		merchantRepo.save(new Merchant(merchant.getMerch_id(), merchant.getMerch_name()));
 
+		return "Merchant is created";
 	}
+	
+//	@GetMapping("/addDummy")
+//	public void dummyData() {
+//		// save a single Customer
+//		merchantRepo.save(new Merchant("333CCC44DD", "IBM"));
+//
+//	}
 }

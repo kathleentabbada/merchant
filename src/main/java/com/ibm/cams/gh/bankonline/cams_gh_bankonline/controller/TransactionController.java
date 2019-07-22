@@ -10,7 +10,7 @@ import com.ibm.cams.gh.bankonline.cams_gh_bankonline.repository.TransactionRepo;
 @RequestMapping("/transaction")
 public class TransactionController {
 	@Autowired
-	TransactionRepo transactionRepo;
+	TransactionRepo transactionRepo; 
 	
 	@GetMapping
 	public List<Transaction> getMerchantList() {

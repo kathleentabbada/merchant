@@ -22,7 +22,7 @@ public class Transaction {
 	@Column(name = "amount")
 	private Double amount;
 	
-	@Column(name = "amount")
+	@Column(name = "trans_date")
 	private Date trans_date;
 	
 	public Transaction() {

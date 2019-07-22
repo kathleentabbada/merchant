@@ -27,6 +27,10 @@ public class Merchant {
 		this.merch_id = merch_id;
 		this.merch_name = merch_name;
 	}
+	@Override
+	public String toString() {
+		return String.format("Merchant[merch_id='%s', merch_name='%s']", merch_id, merch_name);
+	}
 
 	public String getMerch_id() {
 		return merch_id;

@@ -1,7 +1,9 @@
 package com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain;
+
 import java.sql.Date;
+
 public class TransactionUI {
-	
+
 	private String trans_id;
 	private String merch_id;
 	private String accountnumber;

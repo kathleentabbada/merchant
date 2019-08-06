@@ -29,15 +29,6 @@ public class MerchantController {
 		return merchant;
 	}
 
-//	@GetMapping ("/addDummy")
-//	public void dummyData() {
-//		
-//		Merchant newMerch = new Merchant();
-//		newMerch.setMerch_id("ZZZ000HH66");
-//		newMerch.setMerch_name("IBM");
-//		merchantRepo.save(newMerch);
-//	}
-
 	@PostMapping("/addMerchant")
 	public String create(@RequestBody MerchantUI merchant){
 		// save a single Customer
@@ -45,11 +36,4 @@ public class MerchantController {
 
 		return "Merchant is created";
 	}
-	
-//	@GetMapping("/addDummy")
-//	public void dummyData() {
-//		// save a single Customer
-//		merchantRepo.save(new Merchant("333CCC44DD", "IBM"));
-//
-//	}
 }

@@ -31,10 +31,6 @@ public class EnrolledMerchant {
 		this.merch_id = merch_id;
 		this.accountnumber = accountnumber;
 	}
-	
-	public String toString() {
-		return String.format("EnrolledMerchant[enmerch_id='%s', merch_id='%s', accountnumber='%s']", enmerch_id, merch_id, accountnumber);
-	}
 
 	public String getEnmerch_id() {
 		return enmerch_id;
@@ -59,4 +55,9 @@ public class EnrolledMerchant {
 	public void setAccountnumber(String accountnumber) {
 		this.accountnumber = accountnumber;
 	}
+	
+	public String toString() {
+		return String.format("EnrolledMerchant[enmerch_id='%s', merch_id='%s', accountnumber='%s']", enmerch_id, merch_id, accountnumber);
+	}
+	
 }

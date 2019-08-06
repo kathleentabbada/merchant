@@ -1,0 +1,13 @@
+server:
+  port: 8051
+  servlet:
+    context-path: /v1/merchant/rest-api
+  tomcat:
+    max-threads: 400
+eureka:
+  client:
+    service-Url:
+      defaultZone: http://localhost:8051
+spring:
+  main:
+    allow-bean-definition-overriding: true 

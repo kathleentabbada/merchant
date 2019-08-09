@@ -10,63 +10,62 @@ import javax.persistence.*;
 public class Transaction {
 	
 	@Id
-	@Column(name = "trans_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
-	String trans_id;
+	@Column(name = "transactionid", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
+	String transactionId;
 	
-	@Column(name = "merch_id")
-	private String merch_id;
+	@Column(name = "merchantid")
+	private String merchantId;
 
 	@Column(name = "accountnumber")
-	private String accountnumber;
+	private String accountNumber;
 	
 	@Column(name = "amount")
 	private Double amount;
 	
-	@Column(name = "trans_date")
-	private Date trans_date;
+	@Column(name = "transactiondate")
+	private Date transactionDate;
 	
 	public Transaction() {
 		
 	}
 
-	public Transaction(String merch_id, String accountnumber, Double amount, Date trans_date) {
-		this(null, merch_id, accountnumber, amount, trans_date);
-	}
-
-	public Transaction(String trans_id, String merch_id, String accountnumber, Double amount, Date trans_date) {
-		this.trans_id = trans_id;
-		this.merch_id = merch_id;
-		this.accountnumber = accountnumber;
+	public Transaction(String transactionId, String merchantId, String accountNumber, Double amount,
+			Date transactionDate) {
+		this.transactionId = transactionId;
+		this.merchantId = merchantId;
+		this.accountNumber = accountNumber;
 		this.amount = amount;
-		this.trans_date = trans_date;
+		this.transactionDate = transactionDate;
 	}
 
+	@Override
 	public String toString() {
-		return String.format("Transaction[trans_id='%s', merch_id='%s', accountnumber='%s', amount='%s', trans_date='%s']"
-							, trans_id, merch_id, accountnumber, amount, trans_date);
-	}
-	public String getTrans_id() {
-		return trans_id;
+		return String.format("Transaction[transactioinid='%s', merchantid='%s', accountnumber='%s', amount='%s', transactiondate='%s']"
+							, transactionId, merchantId, accountNumber, amount, transactionDate);
 	}
 
-	public void setTrans_id(String trans_id) {
-		this.trans_id = trans_id;
+	public String getTransactionId() {
+		return transactionId;
 	}
 
-	public String getMerch_id() {
-		return merch_id;
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
 	}
 
-	public void setMerch_id(String merch_id) {
-		this.merch_id = merch_id;
+	public String getMerchantId() {
+		return merchantId;
 	}
 
-	public String getAccountnumber() {
-		return accountnumber;
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
 	}
 
-	public void setAccountnumber(String accountnumber) {
-		this.accountnumber = accountnumber;
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 	public Double getAmount() {
@@ -77,11 +76,13 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	public Date getTrans_date() {
-		return trans_date;
+	public Date getTransactionDate() {
+		return transactionDate;
 	}
 
-	public void setTrans_date(Date trans_date) {
-		this.trans_date = trans_date;
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
 	}
+
+	
 }

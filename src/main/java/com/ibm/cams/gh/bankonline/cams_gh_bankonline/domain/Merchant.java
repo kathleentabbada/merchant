@@ -8,43 +8,40 @@ import javax.persistence.*;
 public class Merchant {
 	
 	@Id
-	@Column(name = "merch_id", unique = true, columnDefinition = "VARCHAR(10)", nullable = false)
-	String merch_id;
+	@Column(name = "merchantid", unique = true, columnDefinition = "VARCHAR(10)", nullable = false)
+	String merchantId;
 
-	@Column(name = "merch_name")
-	private String merch_name;
+	@Column(name = "merchantname")
+	private String merchantName;
 
 	public Merchant() {
 
 	}
 
-	public Merchant(String merch_name) {
-		this(null, merch_name);
+	public Merchant(String merchantId, String merchantName) {
+		this.merchantId = merchantId;
+		this.merchantName = merchantName;
 	}
 
-	public Merchant(String merch_id, String merch_name) {
-		this.merch_id = merch_id;
-		this.merch_name = merch_name;
+	public String getMerchantId() {
+		return merchantId;
 	}
 
-	public String getMerch_id() {
-		return merch_id;
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
 	}
 
-	public void setMerch_id(String merch_id) {
-		this.merch_id = merch_id;
+	public String getMerchantName() {
+		return merchantName;
 	}
 
-	public String getMerch_name() {
-		return merch_name;
+	public void setMerchantName(String merchantName) {
+		this.merchantName = merchantName;
 	}
 
-	public void setMerch_name(String merch_name) {
-		this.merch_name = merch_name;
-	}
 	@Override
 	public String toString() {
-		return String.format("Merchant[merch_id='%s', merch_name='%s']", merch_id, merch_name);
+		return String.format("Merchant[merchantid='%s', merchantname='%s']", merchantId, merchantName);
 	}
 
 }

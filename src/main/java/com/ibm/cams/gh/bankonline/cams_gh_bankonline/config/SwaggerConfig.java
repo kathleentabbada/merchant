@@ -23,11 +23,11 @@ public class SwaggerConfig {
 	}
 
 	private Predicate<String> postPaths() {
-		return or(regex("/merchant.*"));
+		return or(regex("/merchant.*"), regex("/transaction.*"), regex("/enrolledmerchant.*"));
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("PhoneService").description("PhoneService")
+		return new ApiInfoBuilder().title("Merchant").description("Merchant")
 				.termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE").version("1.0 ")

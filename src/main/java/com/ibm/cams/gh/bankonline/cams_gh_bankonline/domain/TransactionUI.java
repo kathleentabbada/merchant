@@ -2,46 +2,47 @@ package com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain;
 import java.sql.Date;
 public class TransactionUI {
 	
-	private String trans_id;
-	private String merch_id;
-	private String accountnumber;
+	private String transactionId;
+	private String merchantId;
+	private String accountNumber;
 	private Double amount;
-	private Date trans_date;
+	private Date transactionDate;
 
 	protected TransactionUI() {
 		
 	}
 
-	public TransactionUI(String trans_id, String merch_id, String accountnumber, Double amount, Date trans_date) {
-		this.trans_id = trans_id;
-		this.merch_id = merch_id;
-		this.accountnumber = accountnumber;
+	public TransactionUI(String transactionId, String merchantId, String accountNumber, Double amount,
+			Date transactionDate) {
+		this.transactionId = transactionId;
+		this.merchantId = merchantId;
+		this.accountNumber = accountNumber;
 		this.amount = amount;
-		this.trans_date = trans_date;
+		this.transactionDate = transactionDate;
+	}
+	
+	public String getTransactionId() {
+		return transactionId;
 	}
 
-	public String getTrans_id() {
-		return trans_id;
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
 	}
 
-	public void setTrans_id(String trans_id) {
-		this.trans_id = trans_id;
+	public String getMerchantId() {
+		return merchantId;
 	}
 
-	public String getMerch_id() {
-		return merch_id;
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
 	}
 
-	public void setMerch_id(String merch_id) {
-		this.merch_id = merch_id;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
-	public String getAccountnumber() {
-		return accountnumber;
-	}
-
-	public void setAccountnumber(String accountnumber) {
-		this.accountnumber = accountnumber;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 	public Double getAmount() {
@@ -52,17 +53,18 @@ public class TransactionUI {
 		this.amount = amount;
 	}
 
-	public Date getTrans_date() {
-		return trans_date;
+	public Date getTransactionDate() {
+		return transactionDate;
 	}
 
-	public void setTrans_date(Date trans_date) {
-		this.trans_date = trans_date;
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
 	}
-	
+
+	@Override
 	public String toString() {
-		return String.format("Transaction[trans_id='%s', merch_id='%s', accountnumber='%s', amount='%s', trans_date='%s']"
-							, trans_id, merch_id, accountnumber, amount, trans_date);
+		return String.format("Transaction[transactionid='%s', merchantid='%s', accountnumber='%s', amount='%s', transactiondate='%s']"
+							, transactionId, merchantId, accountNumber, amount, transactionDate);
 	}
 
 }

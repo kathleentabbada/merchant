@@ -6,58 +6,55 @@ import javax.persistence.*;
 
 @Table(name = "enrolledmerchant_tbl")
 public class EnrolledMerchant {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "enmerch_id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
-	String enmerch_id;
-	
-	@Column(name = "merch_id")
-	private String merch_id;
-	
+	@Column(name = "enrolledmerchantid", unique = true, columnDefinition = "VARCHAR(10)", nullable = false)
+	String enrolledMerchantId;
+
+	@Column(name = "merchantid")
+	private String merchantId;
+
 	@Column(name = "accountnumber")
-	private String accountnumber;
+	private String accountNumber;
 
 	public EnrolledMerchant() {
-		
-	}
-	
-	public EnrolledMerchant(String merch_id, String accountnumber) {
-		this(null, merch_id, accountnumber);
+
 	}
 
-	public EnrolledMerchant(String enmerch_id, String merch_id, String accountnumber) {
-		this.enmerch_id = merch_id;
-		this.merch_id = merch_id;
-		this.accountnumber = accountnumber;
+	public EnrolledMerchant(String enrolledMerchantId, String merchantId, String accountNumber) {
+		this.enrolledMerchantId = enrolledMerchantId;
+		this.merchantId = merchantId;
+		this.accountNumber = accountNumber;
 	}
 
-	public String getEnmerch_id() {
-		return enmerch_id;
+	public String getEnrolledMerchantId() {
+		return enrolledMerchantId;
 	}
 
-	public void setEnmerch_id(String enmerch_id) {
-		this.enmerch_id = enmerch_id;
+	public void setEnrolledMerchantId(String enrolledMerchantId) {
+		this.enrolledMerchantId = enrolledMerchantId;
 	}
 
-	public String getMerch_id() {
-		return merch_id;
+	public String getMerchantId() {
+		return merchantId;
 	}
 
-	public void setMerch_id(String merch_id) {
-		this.merch_id = merch_id;
+	public void setMerchantId(String merchantId) {
+		this.merchantId = merchantId;
 	}
 
-	public String getAccountnumber() {
-		return accountnumber;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
-	public void setAccountnumber(String accountnumber) {
-		this.accountnumber = accountnumber;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
-	
+
+	@Override
 	public String toString() {
-		return String.format("EnrolledMerchant[enmerch_id='%s', merch_id='%s', accountnumber='%s']", enmerch_id, merch_id, accountnumber);
+		return String.format("EnrolledMerchant[enrolledmerchantid='%s', merchantid='%s', accountnumber='%s']",
+				enrolledMerchantId, merchantId, accountNumber);
 	}
-	
+
 }

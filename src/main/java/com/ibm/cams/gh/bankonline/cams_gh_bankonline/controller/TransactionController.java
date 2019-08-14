@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.Merchant;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.Transaction;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.TransactionUI;
+import com.ibm.cams.gh.bankonline.cams_gh_bankonline.generateid.GenerateID;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.repository.TransactionRepo;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -17,6 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class TransactionController {
 	@Autowired
 	TransactionRepo transactionRepo; 
+	@Autowired
+	GenerateID id;
 	
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json") 
 	public List<Transaction> getMerchantList() {
@@ -51,7 +53,7 @@ public class TransactionController {
 	
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json", value = "/addTransaction")
 	public String create(@RequestBody TransactionUI transaction){
-		transactionRepo.save(new Transaction(transaction.getTransactionId(), transaction.getMerchantId(), 
+		transactionRepo.save(new Transaction(id.generateid(), transaction.getMerchantId(), 
 							transaction.getAccountNumber(), transaction.getAmount(),transaction.getTransactionDate()));
 
 		return "Transaction is created";

@@ -1,5 +1,5 @@
 server:
-  port: 8051
+  port: 8080
   servlet:
     context-path: /v1/merchant/rest-api
   tomcat:
@@ -7,7 +7,7 @@ server:
 eureka:
   client:
     service-Url:
-      defaultZone: http://localhost:8051
+      defaultZone: http://cams-eureka-server-granaderos.apps.us-west-2.online-starter.openshift.com/eureka
 spring:
   main:
-    allow-bean-definition-overriding: true 
+    allow-bean-definition-overriding: true  

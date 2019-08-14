@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.EnrolledMerchant;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.EnrolledMerchantUI;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.Transaction;
+import com.ibm.cams.gh.bankonline.cams_gh_bankonline.generateid.GenerateID;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.repository.EnrolledMerchantRepo;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -16,6 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class EnrolledMerchantController {
 	@Autowired
 	EnrolledMerchantRepo EnrolledmerchRepo;
+	@Autowired
+	GenerateID id;
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	public List<EnrolledMerchant> getMerchantList() {
@@ -47,7 +50,7 @@ public class EnrolledMerchantController {
 
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json", value = "/addEnMerchant")
 	public String create(@RequestBody EnrolledMerchantUI enrolledMerchant) {
-		EnrolledmerchRepo.save(new EnrolledMerchant(enrolledMerchant.getEnrolledMerchantId(),
+		EnrolledmerchRepo.save(new EnrolledMerchant(id.generateid(),
 				enrolledMerchant.getMerchantId(), enrolledMerchant.getAccountNumber()));
 		return "Transaction is created";
 	}

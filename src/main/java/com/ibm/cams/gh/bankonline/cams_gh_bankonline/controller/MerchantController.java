@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.Merchant;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain.MerchantUI;
 import com.ibm.cams.gh.bankonline.cams_gh_bankonline.repository.MerchantRepo;
+import com.ibm.cams.gh.bankonline.cams_gh_bankonline.generateid.GenerateID;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -15,6 +16,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class MerchantController {
 	@Autowired
 	MerchantRepo merchantRepo;
+	@Autowired
+	GenerateID id;
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	public List<Merchant> getMerchantList() {
@@ -37,7 +40,7 @@ public class MerchantController {
 
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json", value = "/addMerchant")
 	public String create(@RequestBody MerchantUI merchant) {
-		merchantRepo.save(new Merchant(merchant.getMerchantId(), merchant.getMerchantName()));
+		merchantRepo.save(new Merchant(id.generateid(), merchant.getMerchantName()));
 
 		return "Merchant is created";
 	}

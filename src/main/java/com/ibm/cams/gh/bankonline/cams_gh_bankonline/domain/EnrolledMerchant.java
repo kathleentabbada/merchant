@@ -1,5 +1,7 @@
 package com.ibm.cams.gh.bankonline.cams_gh_bankonline.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +18,7 @@ public class EnrolledMerchant {
 
 	@Column(name = "accountnumber")
 	private String accountNumber;
-
+	
 	public EnrolledMerchant() {
 
 	}
